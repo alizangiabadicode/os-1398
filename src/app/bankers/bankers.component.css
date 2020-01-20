@@ -1,0 +1,20 @@
+.mat-primary {
+  color: white;
+  font-size: 17px;
+  background-color: #2b9800;
+}
+
+.mat-seen {
+  color: white;
+  background-color: black;
+}
+
+.mat-tick {
+  color: white;
+  background-color: #577dff;
+}
+
+.mat-gray {
+  color: white;
+  background-color: lightslategray;
+}
