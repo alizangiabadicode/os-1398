@@ -8,10 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // angular material
 import {MatButtonModule} from '@angular/material/button';
+import { LruComponent } from './lru/lru.component';
 @NgModule({
   declarations: [
     AppComponent,
     BankersComponent,
+    LruComponent,
   ],
   imports: [
     BrowserModule,
