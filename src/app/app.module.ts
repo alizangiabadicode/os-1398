@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // angular material
 import {MatButtonModule} from '@angular/material/button';
 import { LruComponent } from './lru/lru.component';
+import { MemorypartitioningComponent } from './memorypartitioning/memorypartitioning.component';
 @NgModule({
   declarations: [
     AppComponent,
     BankersComponent,
     LruComponent,
+    MemorypartitioningComponent,
   ],
   imports: [
     BrowserModule,

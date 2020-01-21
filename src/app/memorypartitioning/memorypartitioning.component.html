@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="mb-3 d-flex justify-content-center">
+    <button mat-fab color="primary" (click)="next(pages[0])">next</button>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-12 flex-column justify-content-center pr-1" style="height: 100%" *ngIf="singleQueue">
+      <div class="row">
+        <div class="p-4 col-2" *ngFor="let p of (pagesSubject | async).reverse()" style="height: 100px; color: white; background-color: darkgrey">
+          <div style="border-right: 5px solid black">
+            {{p}} mg
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-12">
+      <div class="flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-center rounded text-center"
+             *ngFor="let p of partitionsSubject | async"
+             [ngStyle]="{backgroundColor: p.color, color: 'white', height: ((p.size / 8)* 200).toString()+ 'px'}">
+          {{p.size}} mg
+          &nbsp;
+          <div *ngIf="p.occupied">
+            it is occupied - {{p.size - p.occupier}} mg is empty &nbsp;
+            <button (click)="removeOccupier(p)" mat-stroked-button>delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
