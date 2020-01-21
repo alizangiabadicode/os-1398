@@ -1,13 +1,39 @@
 <div class="container">
   <div class="mb-3 d-flex justify-content-center">
-    <button mat-fab color="primary" (click)="next(pages[0])">next</button>
+    <button
+      mat-stroked-button (click)="singleQueue=!singleQueue" color="{{singleQueue ? 'single' : 'multi'}}">
+      {{singleQueue ? 'single queue' : 'multi queue'}}</button>
+    <button mat-stroked-button color="primary" (click)="next(pages[0])" *ngIf="singleQueue">next (s)</button>
+    <button mat-stroked-button color="primary" (click)="nextMultiQueue(pages[0])" *ngIf="!singleQueue">next (m)</button>
   </div>
   <div class="row">
+<!--    single queue-->
     <div class="col-md-6 col-12 flex-column justify-content-center pr-1" style="height: 100%" *ngIf="singleQueue">
       <div class="row">
         <div class="p-4 col-2" *ngFor="let p of (pagesSubject | async).reverse()" style="height: 100px; color: white; background-color: darkgrey">
           <div style="border-right: 5px solid black">
             {{p}} mg
+          </div>
+        </div>
+      </div>
+    </div>
+<!--    single queue-->
+
+    <div class="col-md-6 col-12 " *ngIf="!singleQueue">
+      <div class="row">
+        <div class="p-4 col-2" *ngFor="let p of (pagesSubject | async).reverse()" style="height: 100px; color: white; background-color: darkgrey">
+          <div style="border-right: 5px solid black">
+            {{p}} mg
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 p-4" *ngFor="let p of partitionQueuesSubject | async; let i = index">
+          <h4>{{partitions[i].size}} mg section</h4>
+          <div *ngFor="let p2 of p.reverse()" style="height: 100px; color: white; background-color: darkgrey">
+            <div style="border-right: 5px solid black">
+              {{p2}} mg
+            </div>
           </div>
         </div>
       </div>
@@ -21,7 +47,8 @@
           &nbsp;
           <div *ngIf="p.occupied">
             it is occupied - {{p.size - p.occupier}} mg is empty &nbsp;
-            <button (click)="removeOccupier(p)" mat-stroked-button>delete</button>
+            <button *ngIf="singleQueue" (click)="removeOccupier(p)" mat-stroked-button>delete (s)</button>
+            <button *ngIf="!singleQueue" (click)="removeOccupierMulti(p)" mat-stroked-button>delete (m)</button>
           </div>
         </div>
       </div>

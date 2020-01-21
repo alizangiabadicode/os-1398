@@ -1,3 +1,18 @@
-<app-bankers></app-bankers>
-<app-lru></app-lru>
-<app-memorypartitioning></app-memorypartitioning>
+<mat-accordion>
+  <mat-expansion-panel [class.mat-elevation-z8]="true">
+    <mat-expansion-panel-header>bankers</mat-expansion-panel-header>
+    <app-bankers  [class.mat-elevation-z8]="true"></app-bankers>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel  [class.mat-elevation-z8]="true">
+    <mat-expansion-panel-header>lru</mat-expansion-panel-header>
+    <app-lru [class.mat-elevation-z8]="true"></app-lru  >
+  </mat-expansion-panel>
+
+  <mat-expansion-panel  [class.mat-elevation-z8]="true">
+    <mat-expansion-panel-header>memory partitioning</mat-expansion-panel-header>
+    <app-memorypartitioning  [class.mat-elevation-z8]="true"></app-memorypartitioning>
+  </mat-expansion-panel>
+
+  </mat-accordion>
+
