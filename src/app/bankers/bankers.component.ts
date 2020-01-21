@@ -77,8 +77,7 @@ export class BankersComponent implements OnInit {
 
   findSuitableNeed(): boolean {
     let anyFound = false;
-    this.needs.filter(e => !e.tick).forEach(
-      (need, nIndex) => {
+    this.needs.filter(e => !e.tick).forEach( (need, nIndex) => {
         const safe = need.arr.every((value, index) => {
           return value <=  this.remaining[index]
         });

@@ -3,7 +3,9 @@
 </div>
 <div>
 <div class="row" *ngFor="let res of result| async" >
-  <div class="d-flex justify-content-center col-4">
+  <div class="text-center justify-content-center col-12 col-md-4">
+    <h3>needs</h3>
+    <div class="d-flex justify-content-center">
     <div class="flex-column justify-content-center">
       <div *ngFor="let re of res.needs">
         <button class="mr-2"
@@ -12,7 +14,9 @@
         </button>
       </div>
     </div>
-  </div>  <div class="d-flex justify-content-center col-4">
+  </div></div>  <div class="justify-content-center text-center col-12 col-md-4">
+  <h3>available</h3>
+  <div class="d-flex justify-content-center">
   <div class="flex-column justify-content-center">
     <div *ngFor="let re of res.alloc">
       <button class="mr-2"
@@ -20,13 +24,15 @@
               *ngFor="let i of re">{{i}}
       </button>
     </div>
-  </div>
-</div><div class="d-flex justify-content-center col-4">
+  </div></div>
+</div><div class="justify-content-center text-center col-12 col-md-4">
+  <h3>all</h3>
+  <div class="d-flex justify-content-center">
     <div *ngFor="let re of res.remaining">
       <button class="mr-2"
               mat-mini-fab color="accent">{{re}}
       </button>
   </div>
-</div>
+</div></div>
 </div>
 </div>

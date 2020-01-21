@@ -18,3 +18,7 @@
   color: white;
   background-color: lightslategray;
 }
+
+button {
+  margin: 10px 10px;
+}
