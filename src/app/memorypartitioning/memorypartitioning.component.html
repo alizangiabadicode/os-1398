@@ -46,7 +46,8 @@
           {{p.size}} mg
           &nbsp;
           <div *ngIf="p.occupied">
-            it is occupied - {{p.size - p.occupier}} mg is empty &nbsp;
+            it is occupied - {{p.size - p.occupier}} mg is empty &nbsp;&nbsp;
+            - <button mat-stroked-button color="white">{{p.occupier}} mg</button>
             <button *ngIf="singleQueue" (click)="removeOccupier(p)" mat-stroked-button>delete (s)</button>
             <button *ngIf="!singleQueue" (click)="removeOccupierMulti(p)" mat-stroked-button>delete (m)</button>
           </div>
