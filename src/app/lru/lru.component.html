@@ -1,5 +1,8 @@
 <div class="container text-center">
   <button color="primary" mat-fab [disabled]="disable" (click)="SendData(dataToEnter[index]);" >Start</button>
+  <div class="d-flex justify-content-center my-2">
+    <button mat-mini-fab color="warn" *ngFor="let i of dataToEnterSubject | async" class="my-2">{{i}}</button>
+  </div>
   <div class="row">
     <div class="col-md-2 col-4" *ngFor="let data of dataSubject | async">
       <div class="d-flex justify-content-center">

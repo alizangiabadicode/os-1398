@@ -24,9 +24,11 @@ export class LruComponent implements OnInit {
   index = 0;
   disable = false;
   dataToEnter = [7,0,1,2,0,3,0,4,2];
+  dataToEnterSubject: BehaviorSubject<number[]>;
   constructor() { }
 
   ngOnInit() {
+    this.dataToEnterSubject =  new BehaviorSubject<number[]>(this.dataToEnter);
   }
 
   SendData(pageNum: number) {
@@ -36,7 +38,7 @@ export class LruComponent implements OnInit {
       return;
     }
     this.index +=1;
-
+    this.dataToEnterSubject.next(this.dataToEnter.slice(this.index));
 
     if (this.data.find(e => e.data === pageNum) !== undefined) { // hit
       this.data.filter(e=>e.data !== pageNum).forEach((v) => {

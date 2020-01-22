@@ -5,6 +5,7 @@ export interface Need {
   arr: number[];
   seen: boolean;
   tick: boolean;
+  use: number;
 }
 
 export interface Result {
@@ -25,23 +26,28 @@ export class BankersComponent implements OnInit {
 // { 2, 2, 2 }, //P3
 // { 4, 3, 3 }};//P4
   sequence = [];
+  useNumber = 0;
   needs: Need[] = [
     {
       arr: [3, 2, 2],
       seen: false,
-      tick: false
+      tick: false,
+      use: 0
     },    {
       arr: [9, 0, 2],
       seen: false,
-      tick: false
+      tick: false,
+      use: 0
     },    {
       arr: [2, 2, 2],
       seen: false,
-      tick: false
+      tick: false,
+      use: 0
     },{
       arr: [4, 3, 3],
       seen: false,
-      tick: false
+      tick: false,
+      use: 0
     },
   ];
 
@@ -63,9 +69,16 @@ export class BankersComponent implements OnInit {
   result = new BehaviorSubject<Result[]>([]);
 
   show = false;
+
+  needTemp: Need[] = [];
+  remainingTemp: number[];
   constructor() { }
 
   ngOnInit() {
+    this.needs.forEach((v)=> {
+      this.needTemp.push(Object.assign({}, v));
+    });
+    this.remainingTemp = Object.assign([], this.remaining);
   }
 
   call() {
@@ -88,6 +101,7 @@ export class BankersComponent implements OnInit {
         } else {
           // this.sequence.push('P ' + (nIndex + 1).toString());
           need.tick= true;
+          need.use = ++this.useNumber;
           // need.seen = true;
           this.addToRemaining(nIndex);
           anyFound = true;
