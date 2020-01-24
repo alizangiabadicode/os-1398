@@ -20,11 +20,7 @@ export interface Result {
   styleUrls: ['./bankers.component.css']
 })
 export class BankersComponent implements OnInit {
-//   max = new int[,] {{ 7, 5, 3 }, //P0
-// { 3, 2, 2 }, //P1
-// { 9, 0, 2 }, //P2
-// { 2, 2, 2 }, //P3
-// { 4, 3, 3 }};//P4
+
   sequence = [];
   useNumber = 0;
   needs: Need[] = [
@@ -50,13 +46,6 @@ export class BankersComponent implements OnInit {
       use: 0
     },
   ];
-
-//   alloc = new int[,] {{ 0, 1, 0 }, //P0
-// { 2, 0, 0 }, //P1
-// { 3, 0, 2 }, //P2
-// { 2, 1, 1 }, //P3
-// { 0, 0, 2 }};//P4
-
   alloc = [
     [2, 0, 0],
     [3, 0, 2],
